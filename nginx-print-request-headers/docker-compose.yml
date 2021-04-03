@@ -1,0 +1,8 @@
+version: "3"
+services:
+  nginx:
+    image: openresty/openresty
+    ports:
+    - 80:80
+    volumes:
+    - ./conf.d:/etc/nginx/conf.d

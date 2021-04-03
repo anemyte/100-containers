@@ -1,0 +1,12 @@
+version: "3"
+services:
+  proxy:
+    image: nginx
+    ports:
+    - 80:80
+    environment:
+      NGINX_SERVER_NAME: localhost
+      NGINX_AUTH_CREDENTIALS: auth string from .docker/config.json
+      NGINX_PROXY_TO: https://docker.pkg.github.com/
+    volumes:
+    - ./templates:/etc/nginx/templates
