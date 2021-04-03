@@ -3,9 +3,9 @@
 Use to find out which HTTP headers an app sends out.
 
 #### Usage:
-1. Modify [conf.d/default.conf](conf.d/default.conf) by replacing `https://example.com` with the address of actual server, to which you want to forward requests.
+1. Modify [conf.d/default.conf](conf.d/default.conf) by replacing `https://example.com` with an address of the actual server, to which you want to forward requests.
 1. Bring up the proxy with `docker-compose up`
-1. Make your application to use proxy instead of the real server.
+1. Make your application to use the proxy instead of real server.
 1. See headers in container `stderr`:
 ```
 nginx_1  | 2021/04/03 07:04:31 [error] 6#6: *1 [lua] header_filter_by_lua:7: 
