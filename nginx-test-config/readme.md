@@ -6,4 +6,4 @@ Okay this may look stupid but actually these are pretty useful. I use one of the
 1. [The long one](long) is for something complex. The config files are mounted inside the container. Config changes are constantly checked by the startup script with automatic reload on successful configuration test.
 
 #### Pro Tip
-If you're going to use this container to proxy requests to your host machine and you're using Docker Desktop for Windows or Mac Os, use `host.docker.internal` instead of `localhost`. On Linux you may enable `network_mode: host` and use `localhost`.
+If you're going to use one of these to proxy requests to your host machine and you're using Docker Desktop for Windows or Mac OS, use `host.docker.internal` instead of `localhost`. On Linux you may enable `network_mode: host` and use `localhost`.
