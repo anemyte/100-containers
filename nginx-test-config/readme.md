@@ -6,4 +6,9 @@ Okay it may look stupid but actually these are pretty useful. I use one of these
 1. [The long one](long) is for something complex. The config files are mounted inside the container. Config changes are constantly checked by the startup script with automatic reload on successful configuration test.
 
 #### Pro Tip
-If you're going to use one of these to proxy requests to your host machine and you're using Docker Desktop for Windows or Mac OS, use `host.docker.internal` instead of `localhost`. On Linux you may enable `network_mode: host` and use `localhost`.
+If you're going to use one of these to proxy requests to an application on your host machine:
+* Docker Desktop for Windows or MacOS:
+  * use `host.docker.internal` instead of `localhost` in NGINX config to refer to docker host.
+  * your app should accept connections from any IP `0.0.0.0` and if there's a list of hosts (allowed headers), then `host.docker.internal` must be in it as well.
+
+* On Linux you may just enable `network_mode: host` and it'll work as if it's running on the host (i.e. you can use `localhost` for upstream address).
