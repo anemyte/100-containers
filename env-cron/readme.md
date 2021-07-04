@@ -4,7 +4,7 @@ Having cron in container environment is usually a bad practice for production bu
 
 The main component here is the [script](docker-entrypoint.sh), the [Dockerfile](Dockerfile) is just a minimal integration example. Take the script contents into startup sequence of your image, and the job is done.
 
-Example usage (see [docker-compose.yml](docker-compose.yml) for full example):
+Example usage (see [docker-compose.yml](docker-compose.yml) for a full example):
 ```yaml
       CRONTAB: |
         # Now you can work with it like with a normal crontab
