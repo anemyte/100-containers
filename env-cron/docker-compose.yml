@@ -1,0 +1,38 @@
+version: "3"
+services:
+  cron:
+    image: env-cron
+    build:
+      context: .
+    command: "sleep 600"
+    environment:
+      # (optional) they will have the crontab, current user if undeclared
+      #CRON_USER: boris
+
+      # (optional) write-enabled location for a temporary file
+      #CRON_TMPFILE: /tmp/crontab.txt
+
+      # (mandatory) the crontab (don't miss the pipe for multiline value)
+      CRONTAB: |
+        # Now you can work with it like with a normal crontab
+
+        # For example, you can declare variables:
+        PATH=/usr/bin:/bin
+        FOO=bar
+
+        # Jobs (obviously):
+        * * * * * echo "I'm doing something useful" > /proc/1/fd/1
+
+        # Use variables:
+        * * * * * echo "Hello, $$USER" >> hello.txt
+
+        # Note 1:
+        # Double 'dollar sign' is not a mistake. If you use signle dollar, docker
+        # will interpret it as if you want to put here some variable from .env file.
+        # So if you want to inject a docker variable use '$variable', if you want to
+        # use system environment variable, use $$variable (docker will just cut off
+        # the extra sign).
+
+        # Note 2:
+        # Remember: cron environment is limited in variables. It's best to explicitly
+        # define any environment variables you want to use.
